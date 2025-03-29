@@ -20,7 +20,7 @@ public abstract class Files_Handling {
         }
 
         fileOutputStream.close();
-        System.out.println("File received: " + savePath);
+        System.out.println("Received: " + savePath);
     }
 
 
