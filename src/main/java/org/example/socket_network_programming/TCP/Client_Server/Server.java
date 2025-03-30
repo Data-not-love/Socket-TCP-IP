@@ -2,7 +2,7 @@ package org.example.socket_network_programming.TCP.Client_Server;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.DataOutputStream;  
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -22,7 +22,7 @@ public class Server extends Files_Handling{
         try {
             System.out.println("\u001B[33m" + "Waiting for Client ..." + "\u001B[0m");
             Socket server = serverSocket.accept();
-            System.out.println("Server SYN - ACK : port " + Integer.parseInt(getPortNumber()));
+            System.out.println("Server SYN - ACK : port : " + Integer.parseInt(getPortNumber()));
             System.out.println("Connected to : " + server.getRemoteSocketAddress());
             DataInputStream inputStream = new DataInputStream(server.getInputStream());
             System.out.println(inputStream.readUTF());
