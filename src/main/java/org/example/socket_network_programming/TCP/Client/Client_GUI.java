@@ -1,4 +1,4 @@
-package org.example.socket_network_programming.TCP.Client_Server.Client;
+package org.example.socket_network_programming.TCP.Client;
 
 import javafx.application.Application;
 import javafx.scene.input.Dragboard;
@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-
 import java.io.*;
 
 public class Client_GUI extends Application {
@@ -49,8 +48,8 @@ public class Client_GUI extends Application {
         VBox dragAndDrop = new VBox();
         dragAndDrop.setPrefSize(300, 200);
         dragAndDrop.setStyle("-fx-border-color: gray; -fx-border-width: 2; -fx-alignment: center; -fx-background-color: #f9f9f9;");
-        Label prompt = new Label("Drag and drop a file here");
-        dragAndDrop.getChildren().add(prompt);
+        Label labelDragAndDrop = new Label("Drag and drop a file here");
+        dragAndDrop.getChildren().add(labelDragAndDrop);
 
         dragAndDrop.setOnDragOver(event -> {
             if (event.getGestureSource() != dragAndDrop && event.getDragboard().hasFiles()) {
@@ -65,7 +64,7 @@ public class Client_GUI extends Application {
 
             if (db.hasFiles()) {
                 selectedFile = db.getFiles().get(0); // Get the dropped file
-                prompt.setText("Dropped: " + selectedFile.getName());
+                labelDragAndDrop.setText("Dropped: " + selectedFile.getName());
                 fileLabel.setText("Send this File : " + selectedFile.getName());
 
                 success = true;
@@ -84,13 +83,13 @@ public class Client_GUI extends Application {
         primaryStage.show();
     }
 
-    private void chooseFile(Stage stage) {
-        FileChooser fileChooser = new FileChooser();
-        selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile != null) {
-            fileLabel.setText("Send this file? " + selectedFile.getName());
-        }
-    }
+//    private void chooseFile(Stage stage) {
+//        FileChooser fileChooser = new FileChooser();
+//        selectedFile = fileChooser.showOpenDialog(stage);
+//        if (selectedFile != null) {
+//            fileLabel.setText("Send this file? " + selectedFile.getName());
+//        }
+//    }
 
     private void sendFile() throws FileNotFoundException {
         if (selectedFile == null) {
