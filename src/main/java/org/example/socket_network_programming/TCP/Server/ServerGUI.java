@@ -1,4 +1,4 @@
-package org.example.socket_network_programming;
+package org.example.socket_network_programming.TCP.Server;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -11,8 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.example.socket_network_programming.TCP.Client_Server.Client.Observable_Client;
-import org.example.socket_network_programming.TCP.Client_Server.Server.Server;
+import org.example.socket_network_programming.TCP.Client.Observable_Client;
+
 import java.io.IOException;
 
 public class ServerGUI extends Application {
@@ -75,19 +75,23 @@ public class ServerGUI extends Application {
         TableColumn<Observable_Client, String> clientIP = new TableColumn<>("Client IP");
         clientIP.setCellValueFactory(cellData -> cellData.getValue().clientIPProperty());
 
+        TableColumn<Observable_Client, String> FileName = new TableColumn<>("File Name");
+        TableColumn<Observable_Client, String> Option = new TableColumn<>("Options");
 
 
-        clientID.prefWidthProperty().bind(tableView.widthProperty().divide(3));
-        clientOS.prefWidthProperty().bind(tableView.widthProperty().divide(3));
-        clientIP.prefWidthProperty().bind(tableView.widthProperty().divide(3));
 
+        clientID.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        clientOS.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        clientIP.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        FileName.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        Option.prefWidthProperty().bind(tableView.widthProperty().divide(5));
         
         tableView.setItems(clientData);
-        tableView.getColumns().addAll(clientID, clientOS,clientIP);
+        tableView.getColumns().addAll(clientID, clientOS,clientIP,FileName,Option);
 
         VBox layout = new VBox(15, firstRow, fileSentFromClient, tableView);
         layout.setStyle("-fx-padding: 10; -fx-alignment: center;");
-        Scene scene = new Scene(layout, 600, 500);
+        Scene scene = new Scene(layout, 750, 500);
         stage.setScene(scene);
         stage.show();
     }
