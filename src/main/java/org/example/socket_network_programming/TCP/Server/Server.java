@@ -1,9 +1,9 @@
-package org.example.socket_network_programming.TCP.Client_Server.Server;
+package org.example.socket_network_programming.TCP.Server;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.socket_network_programming.TCP.Client_Server.Client.Client;
-import org.example.socket_network_programming.TCP.Client_Server.Client.Observable_Client;
-import org.example.socket_network_programming.TCP.Client_Server.Files_Handling;
+import org.example.socket_network_programming.TCP.Client.Client;
+import org.example.socket_network_programming.TCP.Client.Observable_Client;
+import org.example.socket_network_programming.TCP.Files_Handling;
 
 import java.io.DataInputStream;
 import java.io.File;
